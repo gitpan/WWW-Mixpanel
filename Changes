@@ -1,0 +1,4 @@
+Revision history for WWW-Mixpanel
+
+0.01   Wed Mar 23 22:58:06 PDT 2011
+       - Initial version; Support for single event submission to /track API.

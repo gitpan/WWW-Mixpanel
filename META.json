@@ -1,0 +1,48 @@
+{
+   "abstract" : "API for Mixpanel online analytics",
+   "author" : [
+      "Tom Eliaz"
+   ],
+   "dynamic_config" : 0,
+   "generated_by" : "Dist::Zilla version 4.200004, CPAN::Meta::Converter version 2.110580",
+   "license" : [
+      "perl_5"
+   ],
+   "meta-spec" : {
+      "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+      "version" : "2"
+   },
+   "name" : "WWW-Mixpanel",
+   "prereqs" : {
+      "configure" : {
+         "requires" : {
+            "ExtUtils::MakeMaker" : "6.31"
+         }
+      },
+      "runtime" : {
+         "requires" : {
+            "Carp" : 0,
+            "JSON::Any" : 0,
+            "LWP::UserAgent" : 0,
+            "MIME::Base64" : 0,
+            "perl" : "5.006"
+         }
+      },
+      "test" : {
+         "requires" : {
+            "Test::More" : 0
+         }
+      }
+   },
+   "release_status" : "stable",
+   "resources" : {
+      "homepage" : "http://github.com/tomeliaz/WWW-Mixpanel/tree",
+      "repository" : {
+         "type" : "git",
+         "url" : "git://github.com/tomeliaz/WWW-Mixpanel.git",
+         "web" : "http://github.com/tomeliaz/WWW-Mixpanel/tree"
+      }
+   },
+   "version" : "0.01"
+}
+
