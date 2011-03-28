@@ -9,8 +9,11 @@ Makefile.PL
 README
 dist.ini
 lib/WWW/Mixpanel.pm
+t/00-compile.t
 t/00-load.t
 t/01-basic.t
+t/02-data-api.t
+t/author-critic.t
 t/release-eol.t
 t/release-has-version.t
 t/release-kwalitee.t

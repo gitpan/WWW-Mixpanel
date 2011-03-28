@@ -3,6 +3,10 @@ abstract: 'API for Mixpanel online analytics'
 author:
   - 'Tom Eliaz'
 build_requires:
+  English: 0
+  File::Find: 0
+  File::Temp: 0
+  Test::Exception: 0
   Test::More: 0
 configure_requires:
   ExtUtils::MakeMaker: 6.31
@@ -15,11 +19,12 @@ meta-spec:
 name: WWW-Mixpanel
 requires:
   Carp: 0
-  JSON::Any: 0
+  Digest::MD5: 0
+  JSON: 0
   LWP::UserAgent: 0
   MIME::Base64: 0
   perl: 5.006
 resources:
   homepage: http://github.com/tomeliaz/WWW-Mixpanel/tree
   repository: git://github.com/tomeliaz/WWW-Mixpanel.git
-version: 0.01
+version: 0.02

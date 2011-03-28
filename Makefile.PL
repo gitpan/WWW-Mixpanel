@@ -12,6 +12,10 @@ my %WriteMakefileArgs = (
   'ABSTRACT' => 'API for Mixpanel online analytics',
   'AUTHOR' => 'Tom Eliaz',
   'BUILD_REQUIRES' => {
+    'English' => '0',
+    'File::Find' => '0',
+    'File::Temp' => '0',
+    'Test::Exception' => '0',
     'Test::More' => '0'
   },
   'CONFIGURE_REQUIRES' => {
@@ -23,11 +27,12 @@ my %WriteMakefileArgs = (
   'NAME' => 'WWW::Mixpanel',
   'PREREQ_PM' => {
     'Carp' => '0',
-    'JSON::Any' => '0',
+    'Digest::MD5' => '0',
+    'JSON' => '0',
     'LWP::UserAgent' => '0',
     'MIME::Base64' => '0'
   },
-  'VERSION' => '0.01',
+  'VERSION' => '0.02',
   'test' => {
     'TESTS' => 't/*.t'
   }
