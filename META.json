@@ -4,7 +4,7 @@
       "Tom Eliaz"
    ],
    "dynamic_config" : 0,
-   "generated_by" : "Dist::Zilla version 4.200004, CPAN::Meta::Converter version 2.110580",
+   "generated_by" : "Dist::Zilla version 4.300010, CPAN::Meta::Converter version 2.120630",
    "license" : [
       "perl_5"
    ],
@@ -16,38 +16,39 @@
    "prereqs" : {
       "configure" : {
          "requires" : {
-            "ExtUtils::MakeMaker" : "6.31"
+            "ExtUtils::MakeMaker" : "6.30"
          }
       },
       "runtime" : {
          "requires" : {
-            "Carp" : 0,
-            "Digest::MD5" : 0,
-            "JSON" : 0,
-            "LWP::UserAgent" : 0,
-            "MIME::Base64" : 0,
-            "perl" : "5.006"
+            "Digest::MD5" : "0",
+            "JSON" : "0",
+            "LWP::UserAgent" : "0",
+            "MIME::Base64" : "0",
+            "perl" : "5.006",
+            "strict" : "0",
+            "warnings" : "0"
          }
       },
       "test" : {
          "requires" : {
-            "English" : 0,
-            "File::Find" : 0,
-            "File::Temp" : 0,
-            "Test::Exception" : 0,
-            "Test::More" : 0
+            "English" : "0",
+            "File::Find" : "0",
+            "File::Temp" : "0",
+            "Test::Exception" : "0",
+            "Test::More" : "0"
          }
       }
    },
    "release_status" : "stable",
    "resources" : {
-      "homepage" : "http://github.com/tomeliaz/WWW-Mixpanel/tree",
+      "homepage" : "https://github.com/tomeliaz/WWW-Mixpanel",
       "repository" : {
          "type" : "git",
-         "url" : "git://github.com/tomeliaz/WWW-Mixpanel.git",
-         "web" : "http://github.com/tomeliaz/WWW-Mixpanel/tree"
+         "url" : "https://github.com/tomeliaz/WWW-Mixpanel.git",
+         "web" : "https://github.com/tomeliaz/WWW-Mixpanel"
       }
    },
-   "version" : "0.02"
+   "version" : "0.03"
 }
 

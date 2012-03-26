@@ -9,22 +9,23 @@ build_requires:
   Test::Exception: 0
   Test::More: 0
 configure_requires:
-  ExtUtils::MakeMaker: 6.31
+  ExtUtils::MakeMaker: 6.30
 dynamic_config: 0
-generated_by: 'Dist::Zilla version 4.200004, CPAN::Meta::Converter version 2.110580'
+generated_by: 'Dist::Zilla version 4.300010, CPAN::Meta::Converter version 2.120630'
 license: perl
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
   version: 1.4
 name: WWW-Mixpanel
 requires:
-  Carp: 0
   Digest::MD5: 0
   JSON: 0
   LWP::UserAgent: 0
   MIME::Base64: 0
   perl: 5.006
+  strict: 0
+  warnings: 0
 resources:
-  homepage: http://github.com/tomeliaz/WWW-Mixpanel/tree
-  repository: git://github.com/tomeliaz/WWW-Mixpanel.git
-version: 0.02
+  homepage: https://github.com/tomeliaz/WWW-Mixpanel
+  repository: https://github.com/tomeliaz/WWW-Mixpanel.git
+version: 0.03
