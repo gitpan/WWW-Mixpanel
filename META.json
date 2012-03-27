@@ -40,7 +40,7 @@
          }
       }
    },
-   "release_status" : "testing",
+   "release_status" : "stable",
    "resources" : {
       "homepage" : "https://github.com/tomeliaz/WWW-Mixpanel",
       "repository" : {
