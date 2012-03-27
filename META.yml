@@ -28,4 +28,4 @@ requires:
 resources:
   homepage: https://github.com/tomeliaz/WWW-Mixpanel
   repository: https://github.com/tomeliaz/WWW-Mixpanel.git
-version: 0.03
+version: 0.04
