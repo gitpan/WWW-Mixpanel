@@ -27,9 +27,99 @@ sub new {
           data_api_default_expire_seconds => 180,
           track_api                       => 'api.mixpanel.com/track/', # trailing slash required
           data_api                        => 'mixpanel.com/api/2.0/',
+          people_api                      => 'api.mixpanel.com/engage/',
           json                            => $json,
           ua                              => $ua, }, $class;
 }
+
+sub people_set{
+  my ( $self, $distinct_id, %params ) = @_;
+
+  die "Distinct User Id required" unless $distinct_id;
+
+  my $data = { '$set'  => \%params,
+               '$distinct_id' => $distinct_id,
+               '$ip' => 0,
+               '$token' => $self->{token}
+  };
+
+  my $res =
+    $self->{ua}->post( $self->{use_ssl}
+      ? "https://$self->{people_api}"
+      : "http://$self->{people_api}",
+      { 'data' => encode_base64( $self->{json}->encode($data), '' ) } );
+
+  if ( $res->is_success ) {
+    if ( $res->content == 1 ) {
+      return 1;
+    }
+    else {
+      die "Failure from api: " . $res->content;
+    }
+  }
+  else {
+    die "Failed sending event: " . $self->_res($res);
+  }
+}
+
+sub people_increment{
+  my ( $self, $distinct_id, %params ) = @_;
+
+  die "Distinct User Id required" unless $distinct_id;
+
+  my $data = { '$add'  => \%params,
+               '$distinct_id' => $distinct_id,
+               '$ip' => 0,
+               '$token' => $self->{token}
+             };
+
+  my $res =
+    $self->{ua}->post( $self->{use_ssl}
+                        ? "https://$self->{people_api}"
+                        : "http://$self->{people_api}",
+                        { 'data' => encode_base64( $self->{json}->encode($data), '' ) } );
+
+  if ( $res->is_success ) {
+    if ( $res->content == 1 ) {
+      return 1;
+    }
+    else {
+      die "Failure from api: " . $res->content;
+    }
+  }
+  else {
+    die "Failed sending event: " . $self->_res($res);
+  }
+}
+
+sub people_append_transactions{
+  my ( $self, $distinct_id, %params ) = @_;
+
+  die "Distinct User Id required" unless $distinct_id;
+
+  my $data = { '$add'  => {'$transactions' => \%params},
+               '$distinct_id' => $distinct_id,
+               '$ip' => 0,
+               '$token' => $self->{token}
+             };
+
+  my $res =
+    $self->{ua}->post( $self->{use_ssl}
+                       ? "https://$self->{people_api}"
+                       : "http://$self->{people_api}",
+                       { 'data' => encode_base64( $self->{json}->encode($data), '' ) } );
+
+
+}
+
+sub people_track_charge{
+  my ( $self, $distinct_id, $amount ) = @_;
+
+  die "Distinct User Id required" unless $distinct_id;
+
+  return $self->people_append_transactions( $distinct_id, '$time' => time(), '$amount' => $amount);
+}
+
 
 sub track {
   my ( $self, $event, %params ) = @_;
@@ -153,7 +243,7 @@ sub _res {
 
 1;
 
-
+__END__
 
 =pod
 
@@ -163,7 +253,7 @@ WWW::Mixpanel
 
 =head1 VERSION
 
-version 0.04
+version 0.05
 
 =head1 SYNOPSIS
 
@@ -187,6 +277,22 @@ The WWW::Mixpanel module is an implementation of the L<http://mixpanel.com> API 
 Currently, this module mirrors the event tracking API (L<http://mixpanel.com/api/docs/specification>), and will be extended to include the powerful data access and platform parts of the api. B<FEATURE REQUESTS> are always welcome, as are patches.
 
 This module is designed to die on failure, please use something like Try::Tiny.
+
+=head1 NAME
+
+WWW::Mixpanel
+
+=head1 VERSION
+
+version 0.04
+
+=head1 NAME
+
+WWW::Mixpanel
+
+=head1 VERSION
+
+version 0.04
 
 =head1 METHODS
 
@@ -224,6 +330,18 @@ This method will die on errors, including malformed parameters, indicated by bad
 
 I<To see all API methods at work, look into the module tests.>
 
+=head2 people_set('distinct_id', param => val, param => val ...)
+
+Sets people properties on a distinct_id
+
+=head2 people_increment('distinct_id', param => val, param => val ...)
+
+Increments people properties on a distinct_id
+
+=head2 people_track_charge('distinct_id', charge_amount)
+
+Tracks a revenue event for specific charge amount
+
 =head1 TODO
 
 =over 4
@@ -256,13 +374,31 @@ Tom Eliaz
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2012 by Tom Eliaz.
+This software is copyright (c) 2013 by Tom Eliaz.
+
+This is free software; you can redistribute it and/or modify it under
+the same terms as the Perl 5 programming language system itself.
+
+=head1 AUTHOR
+
+Tom Eliaz
+
+=head1 COPYRIGHT AND LICENSE
+
+This software is copyright (c) 2013 by Tom Eliaz.
+
+This is free software; you can redistribute it and/or modify it under
+the same terms as the Perl 5 programming language system itself.
+
+=head1 AUTHOR
+
+Tom Eliaz
+
+=head1 COPYRIGHT AND LICENSE
+
+This software is copyright (c) 2013 by Tom Eliaz.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
 
 =cut
-
-
-__END__
-

@@ -12,7 +12,6 @@ my %WriteMakefileArgs = (
   "ABSTRACT" => "API for Mixpanel online analytics",
   "AUTHOR" => "Tom Eliaz",
   "BUILD_REQUIRES" => {
-    "English" => 0,
     "File::Find" => 0,
     "File::Temp" => 0,
     "Test::Exception" => 0,
@@ -33,7 +32,7 @@ my %WriteMakefileArgs = (
     "strict" => 0,
     "warnings" => 0
   },
-  "VERSION" => "0.04",
+  "VERSION" => "0.05",
   "test" => {
     "TESTS" => "t/*.t"
   }

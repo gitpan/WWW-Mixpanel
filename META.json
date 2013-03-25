@@ -4,7 +4,7 @@
       "Tom Eliaz"
    ],
    "dynamic_config" : 0,
-   "generated_by" : "Dist::Zilla version 4.300010, CPAN::Meta::Converter version 2.120630",
+   "generated_by" : "Dist::Zilla version 4.300031, CPAN::Meta::Converter version 2.120921",
    "license" : [
       "perl_5"
    ],
@@ -17,6 +17,13 @@
       "configure" : {
          "requires" : {
             "ExtUtils::MakeMaker" : "6.30"
+         }
+      },
+      "develop" : {
+         "requires" : {
+            "Pod::Coverage::TrustPod" : "0",
+            "Test::Pod" : "1.41",
+            "Test::Pod::Coverage" : "1.08"
          }
       },
       "runtime" : {
@@ -32,7 +39,6 @@
       },
       "test" : {
          "requires" : {
-            "English" : "0",
             "File::Find" : "0",
             "File::Temp" : "0",
             "Test::Exception" : "0",
@@ -41,14 +47,6 @@
       }
    },
    "release_status" : "stable",
-   "resources" : {
-      "homepage" : "https://github.com/tomeliaz/WWW-Mixpanel",
-      "repository" : {
-         "type" : "git",
-         "url" : "https://github.com/tomeliaz/WWW-Mixpanel.git",
-         "web" : "https://github.com/tomeliaz/WWW-Mixpanel"
-      }
-   },
-   "version" : "0.04"
+   "version" : "0.05"
 }
 
