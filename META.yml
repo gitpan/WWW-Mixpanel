@@ -27,4 +27,4 @@ requires:
 resources:
   homepage: https://github.com/tomeliaz/WWW-Mixpanel
   repository: https://github.com/tomeliaz/WWW-Mixpanel.git
-version: 0.06
+version: 0.07
