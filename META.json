@@ -47,6 +47,14 @@
       }
    },
    "release_status" : "stable",
-   "version" : "0.05"
+   "resources" : {
+      "homepage" : "https://github.com/tomeliaz/WWW-Mixpanel",
+      "repository" : {
+         "type" : "git",
+         "url" : "https://github.com/tomeliaz/WWW-Mixpanel.git",
+         "web" : "https://github.com/tomeliaz/WWW-Mixpanel"
+      }
+   },
+   "version" : "0.06"
 }
 
